@@ -1,0 +1,3 @@
+rootProject.name='OtpFetcher'
+include ':app'
+include ':otpfetcher'
