@@ -24,7 +24,7 @@ dependencies {
 ## Implementation
 
 ```
-val listener = SmsListener(this /*Context*/, this /*Listener*/, digit /*Otp Digit*/)
+val listener = SmsListener(Context, Listener, Otp Digit) //Default Otp Digit is 4
 //This will start SMSRetrieverClient and Broadcast Receiver.
 listener.startService()
 ```

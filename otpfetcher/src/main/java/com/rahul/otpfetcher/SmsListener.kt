@@ -13,7 +13,7 @@ import java.util.regex.Pattern
 class SmsListener(
     private val context: Context,
     private val handler: SmsResponseHandler,
-    private val digits: Int
+    private val digits: Int = 4
 ) {
 
     companion object {
@@ -69,14 +69,17 @@ class SmsListener(
 
     private fun getOtpFromSms(retrievedText: String?): String {
 
-        val regex = "(\\d{$digits})"
-        val pattern = Pattern.compile(regex)
-        val matcher = pattern.matcher(retrievedText)
         var value = ""
-        if (matcher.find()) {
-            value = matcher.group(0)
-        }
-        return value
+
+        return retrievedText?.let {
+            val regex = "(\\d{$digits})"
+            val pattern = Pattern.compile(regex)
+            val matcher = pattern.matcher(retrievedText)
+            if (matcher.find()) {
+                value = matcher.group(0)
+            }
+            value
+        } ?: value
     }
 
     /**
