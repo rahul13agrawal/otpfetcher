@@ -1,3 +1,5 @@
+@file:Suppress("Annotator")
+
 package com.rahul.otpfetcher
 
 import android.content.BroadcastReceiver

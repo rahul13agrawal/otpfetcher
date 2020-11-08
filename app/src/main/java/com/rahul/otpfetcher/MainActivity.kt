@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), SmsResponseHandler {
 
-    lateinit var listener: SmsListener
+    private lateinit var listener: SmsListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(), SmsResponseHandler {
 
         // This is used to get the hashcode. DO NOT INCLUDE THIS IN PRODUCTION.
         val helper = AppSignatureHelper(this)
-        Log.d("MainActivity", helper.appSignatures[0]);
+        Log.d("MainActivity", helper.appSignatures[0])
 
         listener = SmsListener(this, this, 4)
         listener.startService()
